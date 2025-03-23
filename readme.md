@@ -22,7 +22,7 @@ This project automates the process of retrieving Jira task data and exporting it
 
 ## Prerequisites
 
-1. Python 3.8 or higher installed.
+1. Python 3.5 or higher installed.
 2. A Google Cloud project with the Sheets API enabled.
 3. A Jira account with API access.
 4. A `.env` file with the required environment variables.
