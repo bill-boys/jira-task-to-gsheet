@@ -1,9 +1,5 @@
 # Jira Data to Google Sheets
 
-This project retrieves Jira task data and saves it to a Google Sheet.
-
-# Jira Data to Google Sheets
-
 This project automates the process of retrieving Jira task data and exporting it to a Google Sheet. It is designed to help teams track and analyze Jira issues efficiently by leveraging the Google Sheets API.
 
 ## Features
