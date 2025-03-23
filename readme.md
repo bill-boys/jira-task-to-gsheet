@@ -8,7 +8,7 @@ This project automates the process of retrieving Jira task data and exporting it
 - Export the data to a Google Sheet for easy sharing and analysis.
 - Supports authentication for both Jira and Google Sheets.
 
-## Row Data
+## Table Data
 The data exported to Google Sheets includes the following columns:
 | Column | Description |
 |--------|-------------|
