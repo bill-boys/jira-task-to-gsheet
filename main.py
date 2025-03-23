@@ -136,20 +136,46 @@ def save_to_google_sheets(data, spreadsheet_id, sheet_name):
         return error
 
 
+def main():
+    """Main function to orchestrate the Jira data extraction and Google Sheets saving."""
+    # Load environment variables
+    load_dotenv()
 
-# Load environment variables from .env file
-load_dotenv()
+    # Get variables from environment
+    config = {
+        'jira_url': os.getenv('JIRA_URL'),
+        'jira_username': os.getenv('JIRA_USERNAME'),
+        'jira_api_token': os.getenv('JIRA_API_TOKEN'),
+        'project_key': os.getenv('PROJECT_KEY'),
+        'application': os.getenv('APPLICATION'),
+        'spreadsheet_id': os.getenv('SPREADSHEET_ID'),
+        'sheet_name': os.getenv('SHEET_NAME')
+    }
 
-# Get variables from environment
-jira_url = os.getenv('JIRA_URL')
-jira_username = os.getenv('JIRA_USERNAME')
-jira_api_token = os.getenv('JIRA_API_TOKEN')
-project_key = os.getenv('PROJECT_KEY')
-application = os.getenv('APPLICATION')
-spreadsheet_id = os.getenv('SPREADSHEET_ID')
-sheet_name = os.getenv('SHEET_NAME')
+    # Validate environment variables
+    if not all(config.values()):
+        raise ValueError("Missing required environment variables")
 
-# Get Jira data and save to sheets
-jira_data = get_jira_data(jira_url, jira_username, jira_api_token, project_key, application)
-# print(jira_data)
-save_to_google_sheets(jira_data, spreadsheet_id, sheet_name)
+    try:
+        # Get Jira data
+        jira_data = get_jira_data(
+            config['jira_url'],
+            config['jira_username'],
+            config['jira_api_token'],
+            config['project_key'],
+            config['application']
+        )
+
+        # Save to Google Sheets
+        save_to_google_sheets(
+            jira_data,
+            config['spreadsheet_id'],
+            config['sheet_name']
+        )
+
+    except Exception as e:
+        print(f"Error in main execution: {e}")
+        raise
+
+if __name__ == "__main__":
+    main()

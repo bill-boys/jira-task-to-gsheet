@@ -73,7 +73,7 @@ This will open a browser window to log in with your Google account.
 ### 5. Run the Script
 Execute the script to fetch Jira data and save it to Google Sheets:
 ```bash
-python script_jira.py
+python main.py
 ```
 
 ## Notes
