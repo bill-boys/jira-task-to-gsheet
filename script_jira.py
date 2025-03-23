@@ -41,7 +41,7 @@ def get_jira_data(jira_url, jira_username, jira_api_token, project_key, applicat
 
     three_months_ago = datetime.now() - timedelta(days=90)  # Approximate 3 months
     formatted_date = three_months_ago.strftime('%Y-%m-%d')
-    
+
     jql = f"project = '{project_key}' AND \"application[short text]\" ~ '{application}' AND created >= '{formatted_date}' ORDER BY created DESC"
     print('jql:', jql)
     url = f"{jira_url}/rest/api/3/search/jql"
@@ -108,7 +108,7 @@ def save_to_google_sheets(data, spreadsheet_id, sheet_name):
         service = build("sheets", "v4", credentials=creds)
 
         # Prepare the data including header
-        values = [["summary", "description", "assignee", "comment", "url", "created_at"]] + data if data else []
+        values = [["title", "description", "assignee", "comment", "url", "created_at"]] + data if data else []
         
         body = {
             'values': values

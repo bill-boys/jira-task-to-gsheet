@@ -4,9 +4,20 @@ This project automates the process of retrieving Jira task data and exporting it
 
 ## Features
 - Fetch Jira issues based on specific JQL queries.
-- Extract detailed information such as summary, description, assignee, comments, and creation date.
+- Extract detailed information such as title, description, assignee, comments, and creation date.
 - Export the data to a Google Sheet for easy sharing and analysis.
 - Supports authentication for both Jira and Google Sheets.
+
+## Row Data
+The data exported to Google Sheets includes the following columns:
+| Column | Description |
+|--------|-------------|
+| Title | Title of the Jira issue |
+| Description | Detailed description of the task or issue |
+| Assignee | Team member assigned to the issue |
+| Comments | All comments concatenated with newlines for the issue |
+| URL | Direct link to the Jira issue |
+| Created_at | Timestamp when the issue was created |
 
 ## Technologies Used
 - **Python**: Core programming language.
